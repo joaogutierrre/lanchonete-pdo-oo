@@ -9,7 +9,7 @@ class Model
 
 	public function inserir($values)
 	{
-		$sql = "INSERT INTO {$this->tabela} VALUES ('{$values')";
+		$sql = "INSERT INTO {$this->tabela} VALUES ('{$values}')";
 		echo $sql;
 	}
 }
