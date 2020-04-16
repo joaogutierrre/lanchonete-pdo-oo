@@ -13,7 +13,7 @@ class Conexao
 		$this->$password = '';
 	}
 
-	public function conectar(){
+	public static function conectar(){
 		try{
 			$conn = new PDO(
 				$this->host,
