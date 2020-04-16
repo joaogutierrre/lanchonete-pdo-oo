@@ -11,17 +11,34 @@ class Model
 		$this->db = $conexao->conectar();
 		print_r($this->db);
 	}
+
 	public function inserir($values)
 	{
 		$sql = "INSERT INTO {$this->tabela} VALUES ($values)";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute(); 
 	}
+
 	public function listar()
 	{
 		$sql = "SELECT * FROM {$this->tabela}";
 		$stmt = $this->db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+	}
+
+	public function alterar($id, $values)
+	{
+		$sql = "UPDATE {$this->tabela} SET {$this->values} WHERE {$id}";
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+	}
+
+	public function deletar($id)
+	{
+		$sql = "DELETE FROM {$this->tabela} WHERE id = {$id}";
+		$stmt = $this->db-prepare($sql);
+		$stmt->execute();
 	}
 }
