@@ -7,4 +7,9 @@ class CategoriaDAO extends Model
 		parent::__construct();
 		$this->tabela = 'categorias';
 	}
+	public function insereCategoria(Categoria $categoria)
+	{
+		$values = "null,'{$categoria->getNome()}'";
+		$this->inserir($values);
+	}
 }

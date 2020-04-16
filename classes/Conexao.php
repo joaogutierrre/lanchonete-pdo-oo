@@ -8,12 +8,12 @@ class Conexao
 	private $conn;
 
 	public function __construct(){
-		$this->$host = 'mysql:host=localhost;dbname=loja_senac';
-		$this->$user = 'root';
-		$this->$password = '';
+		$this->host = 'mysql:host=localhost;dbname=lanchonete_api';
+		$this->user = 'root';
+		$this->password = '';
 	}
 
-	public static function conectar(){
+	public function conectar(){
 		try{
 			$conn = new PDO(
 				$this->host,
@@ -25,7 +25,7 @@ class Conexao
 
 		} catch (PDOException $e){
 			echo 'Erro na conexao. Código: ' .$e->getMessage();
-			exit
+			exit;
 		}
 	}
 }
