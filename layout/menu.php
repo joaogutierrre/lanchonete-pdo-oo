@@ -14,7 +14,7 @@
           Categorias
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Listar</a>
+          <a class="dropdown-item" href="categorias.php">Listar</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="form_categoria.php">Cadastrar</a>
         </div>

@@ -16,7 +16,8 @@ class Model
 	{
 		$sql = "INSERT INTO {$this->tabela} VALUES ($values)";
 		$stmt = $this->db->prepare($sql);
-		$stmt->execute(); 
+		$stmt->execute();
+		return $this->db->lastInsertId();
 	}
 
 	public function listar()
@@ -26,6 +27,15 @@ class Model
 		$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+	}
+
+	public function get($id)
+	{
+		$sql = "SELECT * FROM {$this->tabela} WHERE id = {$id}";
+		$stmt = $this->db->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+		$stmt->execute();
+		return $stmt->fetch();
 	}
 
 	public function alterar($id, $values)
