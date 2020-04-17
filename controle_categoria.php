@@ -10,6 +10,7 @@ $id = '';
 if(isset($_GET['id']) && $_GET['id'] != ''){
 	$id = $_GET['id'];
 }
+
 if($acao == 'deletar'){
 
 	$categoriaDA0->deletar($id);
@@ -27,6 +28,8 @@ if($acao == 'deletar'){
 	$categoria->setNome($_POST['nome']);
 	$categoriaDAO->alteraCategoria($categoria);
 	$msg = 'Categoria alterada com sucesso';
+
 }
+
 
 header("Location: categorias.php?msg=$msg");

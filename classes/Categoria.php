@@ -33,6 +33,3 @@ class Categoria
         return $this;
     }
 }
-
-/*$teste = new Categoria();
-$teste->nome;*/
