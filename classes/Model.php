@@ -40,7 +40,7 @@ class Model
 
 	public function alterar($id, $values)
 	{
-		$sql = "UPDATE {$this->tabela} SET {$this->values} WHERE {$id}";
+		$sql = "UPDATE {$this->tabela} SET {$this->values} WHERE id = {$id}";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute();
 	}
